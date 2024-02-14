@@ -1,10 +1,15 @@
-# Done - todo app
+# ✅Done - todo app
 
 ## Description
 
-A simple todo web app to organize tasks and small notes.
-Group tasks and notes in seperate spaces to better organize them.
-You could even add dates to your tasks to better manage your time.
+A simple todo web app to organize tasks, small notes and reminders.
+The main quirk is better organization by seperating anything into personalized spaces.
+
 
 ## Features
+
+- Make tasks, small notes and reminders
+- Group similar ideas into spaces
+- Customize spaces to your liking
+- See everything all at once in the */all* tab
 
