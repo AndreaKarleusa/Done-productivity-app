@@ -4,7 +4,6 @@ class SideBar extends HTMLElement {
         super();
 
         this.attachShadow({ mode: "open" });
-
         this.render();
     }
 
@@ -13,17 +12,29 @@ class SideBar extends HTMLElement {
             ${this.style}
             
             <slot name="space-list"></slot>
-            <button>
-                <slot name="create-button"></slot>
-            </button>
+            <slot name="create-button"></slot>
             `;
     }
 
     get style() {
         return /*html*/`
                 <style>
-                    button{
+                    :host{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        grid-row: span 2;
+                        padding: 1rem 0;
+                        background-color: grey;
+                    }
+                    
+                    ::slotted([slot="create-button"]){
                         background-color: lightskyblue;
+                        font-size: 100%;
+                        padding: 10px 50px;
+                        border: none;
+                        border-radius: 10px
                     }
                 </style>
             `
