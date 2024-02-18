@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Done</title>
+
+    <link rel="stylesheet" href="styles/sideBar.css">
+
+    <script defer type="module" src="scripts/sideBar.js"></script>
 </head>
 
 <body>
-    <h1>Hello World</h1>
+    <side-bar>
+        <ul id="spaceList" slot="space-list"></ul>
+        <div slot="create-button">Create Space</div>
+    </side-bar>
 </body>
 
 </html>
