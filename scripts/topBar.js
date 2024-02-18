@@ -5,6 +5,27 @@ class TopBar extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.render();
+
+        this.addTask();
+    }
+
+    addTask() {
+        const inputElement = this.shadowRoot.querySelector("#task-input");
+        const taskList = document.getElementById("task-list");
+
+        inputElement.addEventListener("keypress", (e) => {
+            if (e.key !== "Enter") {
+                return
+            }
+
+            const task = document.createElement("task-element");
+            task.dataset.contents = inputElement.value;
+            taskList.appendChild(task);
+
+            inputElement.value = "";
+
+
+        });
     }
 
     get template() {

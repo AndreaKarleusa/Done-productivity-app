@@ -4,23 +4,17 @@ class WorkSpace extends HTMLElement {
         super();
         this.attachShadow({ mode: "open" });
         this.render()
-        this.getTasks();
     }
 
 
-    getTasks() {
-        const list = this.shadowRoot.querySelector("#task-list");
-        const task = document.createElement("task-element")
-        list.appendChild(task);
-    }
 
     get template() {
         return /*html*/`
             ${this.style}
             
             <h2>Tasks:</h2>
-            <ul id="task-list">
-            </ul>
+            <slot name="task-list">
+            </slot>
         `;
     }
 
