@@ -5,15 +5,13 @@ class TopBar extends HTMLElement {
 
         this.attachShadow({ mode: "open" });
         this.render();
-
-        this.addTask();
     }
 
-    addTask() {
+    connectedCallback() {
         const inputElement = this.shadowRoot.querySelector("#task-input");
         const taskList = document.getElementById("task-list");
 
-        inputElement.addEventListener("keypress", (e) => {
+        inputElement.addEventListener("keypress", e => {
             if (e.key !== "Enter") {
                 return
             }
@@ -23,8 +21,6 @@ class TopBar extends HTMLElement {
             taskList.appendChild(task);
 
             inputElement.value = "";
-
-
         });
     }
 
@@ -64,14 +60,13 @@ class TopBar extends HTMLElement {
                 }
                 
                 #task-input{
-                    height: 3.5em;
-                    width: 24em;
-                    padding: 0;
+                    width: 20em;
                     border: none;
                     border-radius: 10px;
                     background-color: grey;
                     color: black;
-                    padding: 0 10px;
+                    padding: 15px 10px;
+                    font-size: 20px;
                     /*box-shadow: 0px 5px 5px gray;*/
                 }
                 ::placeholder{

@@ -32,7 +32,7 @@ class SideBar extends HTMLElement {
                     ::slotted([slot="create-button"]){
                         background-color: lightskyblue;
                         font-size: 100%;
-                        padding: 10px 50px;
+                        padding: 10px 40px;
                         border: none;
                         border-radius: 10px
                     }

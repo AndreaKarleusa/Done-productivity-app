@@ -6,15 +6,12 @@ class WorkSpace extends HTMLElement {
         this.render()
     }
 
-
-
     get template() {
         return /*html*/`
             ${this.style}
             
-            <h2>Tasks:</h2>
-            <slot name="task-list">
-            </slot>
+            <slot name="title"></slot>
+            <slot name="task-list"></slot>
         `;
     }
 
