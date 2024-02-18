@@ -10,13 +10,10 @@ class TopBar extends HTMLElement {
     get template() {
         return /*html*/`
             ${this.style}
-            <div id="space-settings">...</div>
+            <object id="more-space-options" data="../icons/more.svg"></object>
             <div id="space-info">
                 <slot name="current-space"></slot>
-                <form id="task-input-form">
-                    <input type="text">
-                    <input type="submit" value="add">
-                </form>
+                <input id="task-input" type="text" placeholder="add a task">
             </div>
         `;
     }
@@ -26,6 +23,10 @@ class TopBar extends HTMLElement {
                 :host{
                     position: relative;
                 }
+                :host button{
+                    font-family: "Rubik", sans-serif;
+                }
+                
                 #space-info{
                     display: flex;
                     justify-content: space-between;
@@ -40,6 +41,35 @@ class TopBar extends HTMLElement {
                     position: absolute;
                     right: 0;
                 }
+                
+                #task-input{
+                    height: 3.5em;
+                    width: 24em;
+                    padding: 0;
+                    border: none;
+                    border-radius: 10px;
+                    background-color: grey;
+                    color: black;
+                    padding: 0 10px;
+                    /*box-shadow: 0px 5px 5px gray;*/
+                }
+                ::placeholder{
+                    color: black;
+                    opacity: 70%;
+                }
+                #task-input:focus{
+                    outline: none;
+                }
+                
+                
+                #more-space-options{
+                    width: 2.5em;
+                    height: 2.5em;
+                    position: absolute;
+                    right: 20px;
+                    top: 5px;
+                }
+                
             </style>
         `;
     }
