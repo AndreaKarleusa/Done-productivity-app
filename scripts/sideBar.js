@@ -26,15 +26,17 @@ class SideBar extends HTMLElement {
                         align-items: center;
                         grid-row: span 2;
                         padding: 1rem 0;
-                        background-color: grey;
+                        background-color: #DEE2E6;
                     }
                     
                     ::slotted([slot="create-button"]){
-                        background-color: lightskyblue;
+                        background-color: #212529;
                         font-size: 100%;
-                        padding: 10px 40px;
+                        padding: 10px 0;
+                        width: 90%;
                         border: none;
-                        border-radius: 10px
+                        border-radius: 10px;
+                        color: #F8F9FA;
                     }
                 </style>
             `

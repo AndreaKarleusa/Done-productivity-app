@@ -63,15 +63,15 @@ class TopBar extends HTMLElement {
                     width: 20em;
                     border: none;
                     border-radius: 10px;
-                    background-color: grey;
-                    color: black;
-                    padding: 15px 10px;
+                    background-color: #DEE2E6;
+                    color: #212529;
+                    padding: 15px 15px;
                     font-size: 20px;
                     /*box-shadow: 0px 5px 5px gray;*/
                 }
                 ::placeholder{
                     color: black;
-                    opacity: 70%;
+                    opacity: 65%;
                 }
                 #task-input:focus{
                     outline: none;
@@ -79,13 +79,12 @@ class TopBar extends HTMLElement {
                 
                 
                 #more-space-options{
-                    width: 2.5em;
-                    height: 2.5em;
+                    width: 2em;
+                    height: 2em;
                     position: absolute;
                     right: 20px;
                     top: 5px;
                 }
-                
             </style>
         `;
     }
