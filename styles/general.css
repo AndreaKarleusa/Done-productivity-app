@@ -18,9 +18,11 @@ body {
 h1 {
     font-size: 38px;
     color: #212529;
+    letter-spacing: -1px;
 }
 
 h2 {
     font-size: 30px;
     color: #212529;
+    letter-spacing: -1px;
 }

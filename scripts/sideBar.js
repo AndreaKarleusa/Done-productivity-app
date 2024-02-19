@@ -7,12 +7,22 @@ class SideBar extends HTMLElement {
         this.render();
     }
 
+    connectedCallback() {
+        const createButton = this.shadowRoot.querySelector("button");
+        const modalObject = document.getElementById("make-space");
+        const modal = modalObject.shadowRoot.querySelector("dialog")
+
+        createButton.addEventListener("click", () => {
+            modal.showModal();
+        });
+    }
+
     get template() {
         return /*html*/`
             ${this.style}
             
             <slot name="space-list"></slot>
-            <slot name="create-button"></slot>
+            <button id="create-space-button">Create Space</button>
             `;
     }
 
@@ -29,14 +39,14 @@ class SideBar extends HTMLElement {
                         background-color: #DEE2E6;
                     }
                     
-                    ::slotted([slot="create-button"]){
+                    #create-space-button{
                         background-color: #212529;
+                        color: #F8F9FA;
                         font-size: 100%;
                         padding: 10px 0;
                         width: 90%;
                         border: none;
                         border-radius: 10px;
-                        color: #F8F9FA;
                     }
                 </style>
             `

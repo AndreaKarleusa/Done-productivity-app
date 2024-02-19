@@ -14,6 +14,7 @@
     <script defer src="scripts/topBar.js"></script>
     <script defer src="scripts/workSpace.js"></script>
     <script src="scripts/task.js"></script>
+    <script src="scripts/createSpaceModal.js"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +26,6 @@
 <body>
     <side-bar>
         <ul id="spaceList" slot="space-list"></ul>
-        <button id="create-space-button" slot="create-button">Create Space</button>
     </side-bar>
     <top-bar>
         <h1 slot="current-space">Current Space</h1>
@@ -35,6 +35,7 @@
         <ul slot="task-list" id="task-list">
         </ul>
     </work-space>
+    <create-space-modal id="make-space"></create-space-modal>
 </body>
 
 </html>
