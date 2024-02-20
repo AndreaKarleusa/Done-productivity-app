@@ -19,21 +19,52 @@ class CreateSpaceModal extends HTMLElement {
             modal.close();
         });
 
+        //? gets spaces from local storage
+        this.loadSpaces(spaceList);
+
 
         saveButton.addEventListener("click", () => {
-
-            console.log(spaceList);
-
-            const space = document.createElement("space-item");
-            space.name = nameInput.value;
-            space.color = colorInput.value;
-
+            const space = this.createSpace(nameInput.value, colorInput.value);
+            this.storeSpace(space);
             spaceList.appendChild(space);
 
             nameInput.value = "";
             modal.close();
         });
     }
+
+
+    loadSpaces(spaceList) {
+        for (let i = 0; i < localStorage.length; i++) {
+            const spaceObject = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            const space = this.createSpace(spaceObject.name, spaceObject.color);
+            spaceList.appendChild(space);
+        }
+    }
+
+    createSpace(name, color) {
+        const space = document.createElement("space-item");
+        space.name = name;
+        space.color = color;
+        return space;
+    }
+
+    createSpaceObject(name, color, tasks) {
+        return {
+            name: name,
+            color: color,
+            tasks: tasks
+        }
+    }
+
+    storeSpace(space) {
+        const spaceObject = this.createSpaceObject(space.name, space.color, []);
+        const strObject = JSON.stringify(spaceObject);
+        localStorage.setItem(space.name, strObject);
+    }
+
+    deleteSpace() { }
+
     get template() {
         return /*html*/`
             ${this.style}
