@@ -1,13 +1,11 @@
 === DESIGN ===
-- Find colors for the website and implement them
 - Make the site responsive
 - Add simple animations, gradients and effects
-- Style the modal for editing spaces
 - Move the input box under the todo section
 
 === LOGIC ===
+- Add line over finished tasks
 - Enable the create space button
 - Link the spaces with tasks
 - Move spaces to local storage
-- Make a modal for editing the spaces
 - Cleanup / Refactore the code 

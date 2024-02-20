@@ -7,11 +7,29 @@ class CreateSpaceModal extends HTMLElement {
     }
 
     connectedCallback() {
+        const spaceList = document.getElementById("space-list");
         const discardButton = this.shadowRoot.querySelector("#discard-space-button");
+        const saveButton = this.shadowRoot.querySelector("#save-space-button");
         const nameInput = this.shadowRoot.querySelector("#space-name-input");
+        const colorInput = this.shadowRoot.querySelector("#space-color-input");
         const modal = this.shadowRoot.querySelector("dialog");
 
         discardButton.addEventListener("click", () => {
+            nameInput.value = "";
+            modal.close();
+        });
+
+
+        saveButton.addEventListener("click", () => {
+
+            console.log(spaceList);
+
+            const space = document.createElement("space-item");
+            space.name = nameInput.value;
+            space.color = colorInput.value;
+
+            spaceList.appendChild(space);
+
             nameInput.value = "";
             modal.close();
         });

@@ -18,7 +18,6 @@ class Task extends HTMLElement {
 
 
     }
-
     static get observedAttributes() {
         return ["data-contents"];
     }
