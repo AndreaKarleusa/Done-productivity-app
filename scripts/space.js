@@ -8,6 +8,11 @@ class Space extends HTMLElement {
 
     connectedCallback() {
         this.render();
+
+        this.addEventListener("click", () => {
+            localStorage.removeItem(this._name);
+            this.remove(this);
+        })
     }
 
     /*
