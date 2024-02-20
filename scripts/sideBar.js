@@ -21,6 +21,7 @@ class SideBar extends HTMLElement {
         return /*html*/`
             ${this.style}
             
+            <h2>Your Spaces</h2>
             <slot name="space-list"></slot>
             <button id="create-space-button">Create Space</button>
             `;
@@ -32,7 +33,6 @@ class SideBar extends HTMLElement {
                     :host{
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
                         align-items: center;
                         grid-row: span 2;
                         padding: 1rem 0;
@@ -47,6 +47,16 @@ class SideBar extends HTMLElement {
                         width: 90%;
                         border: none;
                         border-radius: 10px;
+                    }
+                    
+                    ::slotted([slot="space-list"]){
+                        padding: 0 1rem;
+                        width: -webkit-fill-available;
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 20px;
+                        margin-bottom: auto;
                     }
                 </style>
             `

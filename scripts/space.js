@@ -47,7 +47,7 @@ class Space extends HTMLElement {
             ${this.style}
             
             <div class="color-bar"></div>
-            <h2 class="space-title">${this._name}</h2>
+            <h3 class="space-title">${this._name}</h3>
         `;
     }
 
@@ -57,17 +57,22 @@ class Space extends HTMLElement {
             <style>
                 :host{
                     display: flex;
+                    flex-direction: row;
+                    align-items: flex-start;
+                    justify-content: center;
+                    gap: 10px;
                 }
                 .space-title{
                     padding: 0;
                     margin: 0;
                 }
                 .color-bar{
-                    width: 20px;
-                    height: 20px;
+                    min-width: 10px;
+                    height: 100%;
+                    border: none;
+                    border-radius: 5px;
                     background-color: ${this._color};
                 }
-                
             </style>
         `;
     }

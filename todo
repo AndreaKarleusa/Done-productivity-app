@@ -1,11 +1,16 @@
 === DESIGN ===
 - Make the site responsive
+- Design the space item
+- Design edit space modal
 - Add simple animations, gradients and effects
 - Move the input box under the todo section
+- Find / Make an app logo
+- Change app title / name
 
 === LOGIC ===
 - Add line over finished tasks
-- Enable the create space button
+- Make the current name space work
+- Make the edit space modal work
 - Link the spaces with tasks
 - Move spaces to local storage
-- Cleanup / Refactore the code 
+- Cleanup / Refactore the code (task)
