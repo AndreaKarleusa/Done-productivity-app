@@ -10,7 +10,7 @@ class Task extends HTMLElement {
 
     connectedCallback() {
         const btn = this.shadowRoot.querySelector("button");
-        console.log(btn);
+        const taskText = this.shadowRoot.querySelector(".task")
 
         btn.addEventListener("click", e => {
 
@@ -33,6 +33,10 @@ class Task extends HTMLElement {
 
             this.remove(this);
         });
+
+        this.addEventListener("click", () => {
+            taskText.classList.toggle("line-over");
+        })
 
 
     }
@@ -80,6 +84,10 @@ class Task extends HTMLElement {
                     width: 20px;
                     height: 20px;
                     pointer-events: none;
+                }
+                
+                .line-over {
+                    text-decoration: line-through;
                 }
             </style>
         `

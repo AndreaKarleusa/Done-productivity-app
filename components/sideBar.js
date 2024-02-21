@@ -2,12 +2,12 @@
 class SideBar extends HTMLElement {
     constructor() {
         super();
-
         this.attachShadow({ mode: "open" });
         this.render();
     }
 
-    connectedCallback() {
+    async connectedCallback() {
+        await customElements.whenDefined("create-space-modal")
         const createButton = this.shadowRoot.querySelector("button");
         const modalObject = document.getElementById("make-space");
         const modal = modalObject.shadowRoot.querySelector("dialog")

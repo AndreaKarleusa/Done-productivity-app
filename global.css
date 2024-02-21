@@ -26,3 +26,7 @@ h2 {
     color: #212529;
     letter-spacing: -1px;
 }
+
+.line-over {
+    text-decoration: line-through;
+}

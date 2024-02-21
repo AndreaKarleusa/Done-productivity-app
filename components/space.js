@@ -1,3 +1,4 @@
+
 class Space extends HTMLElement {
     constructor() {
         super();
@@ -11,7 +12,6 @@ class Space extends HTMLElement {
 
         this.addEventListener("click", () => {
             localStorage.setItem("openSpace", this.name);
-            console.log(localStorage.getItem("openSpace"));
         })
     }
 
