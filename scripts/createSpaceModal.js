@@ -36,6 +36,8 @@ class CreateSpaceModal extends HTMLElement {
 
     loadSpaces(spaceList) {
         for (let i = 0; i < localStorage.length; i++) {
+            if (localStorage.getItem("openSpace") === localStorage.getItem(localStorage.key(i))) continue;
+
             const spaceObject = JSON.parse(localStorage.getItem(localStorage.key(i)));
             const space = this.createSpace(spaceObject.name, spaceObject.color);
             spaceList.appendChild(space);

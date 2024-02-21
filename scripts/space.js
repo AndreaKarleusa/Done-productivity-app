@@ -10,8 +10,8 @@ class Space extends HTMLElement {
         this.render();
 
         this.addEventListener("click", () => {
-            localStorage.removeItem(this._name);
-            this.remove(this);
+            localStorage.setItem("openSpace", this.name);
+            console.log(localStorage.getItem("openSpace"));
         })
     }
 

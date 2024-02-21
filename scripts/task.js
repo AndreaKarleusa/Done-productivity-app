@@ -13,6 +13,24 @@ class Task extends HTMLElement {
         console.log(btn);
 
         btn.addEventListener("click", e => {
+
+            // get the current space from local storage
+            // remove this task from the array
+            // put the object back in memory
+
+
+            const currentSpaceStr = localStorage.getItem(localStorage.getItem("openSpace"));
+            const currentSpaceObj = JSON.parse(currentSpaceStr);
+            const tasks = currentSpaceObj.tasks;
+            const taskIndex = tasks.indexOf(this.contents);
+
+            if (taskIndex == -1) return;
+
+            tasks.splice(1, taskIndex);
+
+            localStorage.setItem(currentSpaceObj.name, JSON.stringify(currentSpaceObj));
+            console.log(currentSpaceObj);
+
             this.remove(this);
         });
 

@@ -11,14 +11,22 @@ class TopBar extends HTMLElement {
         const inputElement = this.shadowRoot.querySelector("#task-input");
         const taskList = document.getElementById("task-list");
 
+
         inputElement.addEventListener("keypress", e => {
             if (e.key !== "Enter") {
                 return
             }
 
+            // UI side
             const task = document.createElement("task-element");
             task.dataset.contents = inputElement.value;
             taskList.appendChild(task);
+            // Saving tasks
+            const currentSpaceStr = localStorage.getItem(localStorage.getItem("openSpace"));
+            const currentSpaceObj = JSON.parse(currentSpaceStr);
+            currentSpaceObj.tasks.push(inputElement.value);
+            localStorage.setItem(currentSpaceObj.name, JSON.stringify(currentSpaceObj));
+            console.log(currentSpaceObj)
 
             inputElement.value = "";
         });
@@ -27,7 +35,9 @@ class TopBar extends HTMLElement {
     get template() {
         return /*html*/`
             ${this.style}
-            <object id="more-space-options" data="../icons/more.svg"></object>
+            <button id="edit-button">
+                <object id="edit-button-icon" data="../icons/more.svg"></object>
+            </button>
             <div id="space-info">
                 <slot name="current-space"></slot>
                 <input id="task-input" type="text" placeholder="add a task">
@@ -78,12 +88,21 @@ class TopBar extends HTMLElement {
                 }
                 
                 
-                #more-space-options{
-                    width: 2em;
-                    height: 2em;
+                #edit-button{
+                    width: 2.5rem;
+                    height: 2.5em;
                     position: absolute;
                     right: 20px;
-                    top: 5px;
+                    top: 20px;
+                    padding: 0;
+                    margin: 0;
+                    background: none;
+                    border: none;
+                }
+                #edit-button-icon{
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
                 }
             </style>
         `;
