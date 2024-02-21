@@ -14,3 +14,19 @@
 - Link the spaces with tasks
 - Move spaces to local storage
 - Cleanup / Refactore the code (task)
+
+=== STRUCTURE ===
+- make a component folder for components
+- make scripts for getting and setting data (localStorage, elements...)
+- make all the components have all private members
+
+
+=== FILE STRUCTURE === 
+- icons
+-components
+-scripts
+    - getData
+    - setData
+-global.css
+-index.html
+-README.md

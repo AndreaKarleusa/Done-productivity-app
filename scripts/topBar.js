@@ -12,6 +12,7 @@ class TopBar extends HTMLElement {
         const taskList = document.getElementById("task-list");
 
 
+
         inputElement.addEventListener("keypress", e => {
             if (e.key !== "Enter") {
                 return
