@@ -10,8 +10,14 @@ class Space extends HTMLElement {
     connectedCallback() {
         this.render();
 
+        const topBar = document.querySelector("top-bar");
+        const topBarTitle = topBar.querySelector("h1");
+
         this.addEventListener("click", () => {
             localStorage.setItem("openSpace", this.name);
+            topBarTitle.innerHTML = this.name;
+            topBar.style.backgroundColor = this.color;
+            topBar.render();
         })
     }
 

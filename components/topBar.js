@@ -10,8 +10,11 @@ class TopBar extends HTMLElement {
     connectedCallback() {
         const inputElement = this.shadowRoot.querySelector("#task-input");
         const taskList = document.getElementById("task-list");
+        const title = this.querySelector("h1");
 
-
+        const currentSpace = JSON.parse(localStorage.getItem(localStorage.getItem("openSpace")));
+        title.innerHTML = currentSpace.name;
+        this.style.backgroundColor = currentSpace.color;
 
         inputElement.addEventListener("keypress", e => {
             if (e.key !== "Enter") {
@@ -35,7 +38,7 @@ class TopBar extends HTMLElement {
 
     get template() {
         return /*html*/`
-            ${this.style}
+            ${this._style}
             <button id="edit-button">
                 <object id="edit-button-icon" data="../icons/more.svg"></object>
             </button>
@@ -45,7 +48,7 @@ class TopBar extends HTMLElement {
             </div>
         `;
     }
-    get style() {
+    get _style() {
         return /*html*/`
             <style>
                 :host{
@@ -87,8 +90,6 @@ class TopBar extends HTMLElement {
                 #task-input:focus{
                     outline: none;
                 }
-                
-                
                 #edit-button{
                     width: 2.5rem;
                     height: 2.5em;
